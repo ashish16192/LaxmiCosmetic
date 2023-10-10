@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Is Returnable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data">
+      <td>{{ item.p_Id}}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.mrp }}</td>
+      <td>{{ item.isReturnable}}</td>
+    </tr>
+  </tbody>
+  </table>
