@@ -1,21 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// import { HomeComponent } from './home/home.component';
-// import { LoginPortalComponent } from './login-portal/login-portal.component';
-// import { RegistrationPortalComponent } from './registration-portal/registration-portal.component';
-
 
 const routes: Routes = [
-  // {path:"",component:HomeComponent},
-  // {path:"home",component:HomeComponent},
-  // {path:"loginportal",component:LoginPortalComponent},
-  // {path: "registrationportal",component:RegistrationPortalComponent}
-  
-];
+  { path: '', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) }, 
+  { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) }, 
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }, 
+  { path: 'employee', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule) },
+  { path: 'deskBoard', loadChildren: () => import('./desk-board/desk-board.module').then(m => m.DeskBoardModule) }]; 
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-
 export class AppRoutingModule { }

@@ -1,0 +1,67 @@
+<div class="wrapper" >
+<div class="content-wrapper" style="height: auto;margin-left: 20%;">
+    <h1 style="text-align: center;"> Product  Portel  </h1>
+    <div style="text-align: center;margin-top: 2%; ">
+            <form (ngSubmit)="saveProduct()">
+                <h1>Add Product Form</h1>  
+                <!-- <samp >Product Id</samp><br>
+                <input type="text" [(ngModel)]="inputData.p_Id" id="p_Id" name="p_Id" style="height: 30px; width: 300px; border-radius: 25px;" /><br> -->
+                <samp>Product Name</samp><br>
+                <select [(ngModel)]="inputData.parentId" required name="lotcode" #lotcode="ngModel" style="height: 30px; width: 300px; border-radius: 25px;" >
+                <option value="0" >Select Category</option>
+                <option *ngFor="let item of category" [ngValue]="item.p_Id">{{item.name}}</option>
+                </select><br>
+                <samp>Product Name</samp><br>
+                <input type="text" [(ngModel)]="inputData.name" required placeholder="Name" id="name" name="name" style="height: 30px; width: 300px; border-radius: 25px;" /><br>
+                <samp>Product Price</samp><br>
+                <input type="number" [(ngModel)]="inputData.mrp" required placeholder="1" id="mrp" name="mrp" style="height: 30px; width: 300px; border-radius: 25px;" /><br>
+                <samp>Product Brand</samp><br>
+                <input type="text" [(ngModel)]="inputData.brand" required placeholder="Brand" id="brand" name="brand" style="height: 30px; width: 300px; border-radius: 25px;" /><br>
+                <samp></samp>Return Policy<br>
+                <select [(ngModel)]="inputData.isReturnable" required  name="isReturnable" #isReturnable="ngModel" style="height: 30px; width: 300px; border-radius: 25px;" >
+                    <option Value="True" >select</option>
+                    <option [ngValue]=true >True</option>
+                    <option [ngValue]=false >False</option>
+                    </select><br>
+                <samp>Product Image</samp><br>
+                <input type="file" required (change)="onFileSelected($event)" accept="image/*" [(ngModel)]="inputData.productImage" id="image" name="image" /><br><br>
+                <div>
+                    <img alt="jpg" [src]=inputData.productImage height="50px">
+                </div>
+                <button type="submit" style="margin:auto">Add Product</button>
+                <!-- <button type="submit" style="margin:auto">Reset</button> -->
+            </form>
+        </div>
+        <div style="text-align: center;">
+            <table style="border:3px solid black;border-collapse:collapse;width: 100%; ">
+                <thead>
+                    <tr>
+                        <th style="border:1px solid #000">Porduct ID</th>
+                        <th style="border:1px solid #000"> Category</th>
+                        <th style="border:1px solid #000">Name</th>
+                        <th style="border:1px solid #000">Price</th>
+                        <th style="border:1px solid #000">ProductImage</th>
+                        <th style="border:1px solid #000">Brand</th>
+                        <th style="border:1px solid #000">Is Returnable</th>
+                        <th style="border:1px solid #000">Edit Link</th>
+                        <th style="border:1px solid #000">Delete Link</th>
+    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of data; let i=index; let j=index">
+                        <td style="border:1px solid #000">{{ item.p_Id}}</td>
+                        <td style="border:1px solid #000">{{item.categoryName}}</td>
+                        <td style="border:1px solid #000">{{ item.name }}</td>
+                        <td style="border:1px solid #000">{{ item.mrp }}</td>
+                        <td style="border:1px solid #000"><img alt="h" [src]=item.productImage height="50px" > </td>
+                        <td style="border:1px solid #000">{{ item.brand }}</td>
+                        <td style="border:1px solid #000">{{ item.isReturnable}}</td>     
+                        <td style="border:1px solid #000"><button type="button" (click)="editClick(i)">Edit</button></td>
+                        <td style="border:1px solid #000"><button type="button" (click)="DeleteProduct(item.p_Id)">Delete{{ item.isDeleted}}</button></td>
+                    </tr>
+                </tbody>
+            </table>  
+            </div>
+ </div>
+</div>

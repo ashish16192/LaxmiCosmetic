@@ -1,0 +1,37 @@
+<div class="wrapper">
+<div class="content-wrapper" style="height: auto;margin-left: 20%;">
+<h1 style="text-align: center;">Category  Portel</h1>
+        <div style="text-align: center;margin-top: 2%;">
+            <form (ngSubmit)="saveCategory()">
+                <h1>Add Category Form</h1>
+                <samp>Category Name</samp><br>
+                <input type="text" [(ngModel)]="inputData.name" id="name" name="name" style="height: 30px; width: 300px; border-radius: 25px;"/><br><br>
+                <samp>Category Image</samp><br>
+                <input type="file" (change)="onFileSelected($event)" accept="image/*" [(ngModel)]="inputData.productImage" id="image" name="image" /><br><br>
+                <div>
+                    <img alt="jpg" [src]=inputData.productImage height="50px">
+                </div>
+                <button type="submit">Add Category</button>
+            </form></div>  
+            <div style="text-align: center;">      
+            <table style="border:3px solid black;border-collapse:collapse;width: 100%;">
+            <thead>
+                <tr>   
+                    <th>Category Id</th>                
+                    <th>Category Name</th>
+                    <th>Category Image</th> 
+                    <th>Edit Link</th>                
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data; let i=index"> 
+                    <td>{{item.p_Id}}</td>
+                    <td>{{ item.name }}</td>
+                    <td><img alt="jpg" [src]=item.productImage height="50px"></td>
+                    <td ><button type="button" (click)="editClick(i)">Edit</button></td>
+                </tr>
+            </tbody>
+        </table> 
+    </div>
+  </div>
+</div>

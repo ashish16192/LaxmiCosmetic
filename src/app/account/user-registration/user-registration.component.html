@@ -1,0 +1,33 @@
+<div class="wrapper" >
+        <h1 style="text-align: center;"> Customer  Portel  </h1>
+        <div style="text-align: center;margin-top: 2%; ">
+    <form (ngSubmit)="saveUser()">
+    <h1>Add User Form</h1>  
+    <samp>Customer Name</samp><br>
+    <input type="text" [(ngModel)]="inputData.name" required placeholder="Name" id="name" name="name" style="height: 30px; width: 300px; border-radius: 25px;" /><br>
+    <samp>Gender</samp><br>
+    <input type="text" [(ngModel)]="inputData.gender" required placeholder="gender" id="gender" name="gender" style="height: 30px; width: 300px; border-radius: 25px;" /><br>
+    <samp>Contact No</samp><br>
+    <input type="text" [(ngModel)]="inputData.contactNo" maxlength="10" required placeholder="contactNo" id="contactNo" name="contactNo" style="height: 30px; width: 300px; border-radius: 25px;" /><br>
+    <samp>Emali</samp><br>
+    <input type="text" [(ngModel)]="inputData.email" required placeholder="email" id="email" name="email" style="height: 30px; width: 300px; border-radius: 25px;" /><br>
+    <samp>DOB</samp><br>
+    <input type="date" [(ngModel)]="inputData.dateOfBarth" required placeholder="dateOfBarth" id="dateOfBarth" name="dateOfBarth" style="height: 30px; width: 300px; border-radius: 25px;" /><br>
+    <samp>Address</samp><br>
+    <input type="text" [(ngModel)]="inputData.address" required placeholder="address" id="address" name="address" style="height: 30px; width: 300px; border-radius: 25px;" /><br>
+    <samp>UserName</samp><br>
+    <input type="text" [(ngModel)]="inputData.userName" required placeholder="userName" id="userName" name="userName" style="height: 30px; width: 300px; border-radius: 25px;" /><br>
+    <samp>Password</samp><br>
+    <input type="text" [(ngModel)]="inputData.password" required placeholder="password" id="password" name="password" style="height: 30px; width: 300px; border-radius: 25px;" /><br>
+    <samp>User Type</samp><br>
+    <input type="text" [(ngModel)]="inputData.userType" required placeholder="userType" id="userType" name="userType" style="height: 30px; width: 300px; border-radius: 25px;" /><br>
+    <samp>Profile Image</samp><br>
+    <input type="file" required accept="image/*" (change)="onFileSelected($event)" [(ngModel)]="inputData.profileImage" id="image" name="image" /><br><br>
+    <div>
+        <img alt="jpg" [src]=inputData.profileImage height="50px">
+    </div>
+    <button type="submit" style="margin:auto">Add User</button>
+    <button type="submit" [routerLink]="['/admin/sales']" style="margin:auto">Back to Sale</button>
+    <button type="submit" [routerLink]="['/admin/home']" style="margin:auto">GoTo Home</button>
+</form>
+        </div></div>
